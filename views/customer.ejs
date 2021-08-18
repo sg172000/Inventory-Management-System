@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>customer</title>
+
+  <link rel="stylesheet" href="customer.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/14175b670a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="navigation">
+    <ul>
+      <li>
+        <a href="/">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span class="title">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/customer">
+          <span class="icon"><i class="fa fa-users" ></i></span>
+          <span class="title">Customer</span>
+        </a>
+      </li>
+      <li>
+        <a href="/product">
+          <span class="icon"><i class="fa fa-product-hunt fa-2x" ></i></span>
+          <span class="title">Add product</span>
+        </a>
+      </li>
+      <li>
+        <a href="/supplier">
+          <span class="icon"><i class="fa fa-users fa-2x" ></i></span>
+          <span class="title">Supplier</span>
+        </a>
+      </li>
+      <li>
+        <a href="/brand">
+          <span class="icon"><i class="fa fa-font-awesome fa-2x" ></i></span>
+          <span class="title">Brand</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="toggle" onclick="toggleMenu()">
+<script type="text/javascript">
+  function toggleMenu() {
+let navigation=document.querySelector('.navigation');
+let toggle=document.querySelector('.toggle');
+navigation.classList.toggle('active');
+toggle.classList.toggle('active');
+  }
+</script>
+  </div>
+
+
+  <div class="text-center container" style="color:white;margin-left:19rem;height:5rem;padding:15px; background:#07689F;width:64%;border-radius:10px">
+    <h2>Customer Record</h2>
+  </div>
+  <div style="margin-top:3rem;" class="division table-responsive-lg">
+    <table class="table">
+      <thead>
+<tr>
+  <th>NAME</th>
+  <th>PHONE NO</th>
+  <th>DATE OF BIRTH</th>
+  <th>AGE</th>
+  <th>Delete</th>
+</tr>
+</thead>
+  <%for(let i=0 ; i<customer.length ; i++ ){%>
+    <form action="/delete" method="post">
+    <tr>
+      <td><%=customer[i].name%></td>
+      <td><%=customer[i].phone%></td>
+      <td><%=customer[i].dob%></td>
+      <td><%=customer[i].age%></td>
+      <td><button class="btn btn-danger btn-sm" type="submit" name="del_btn" value="delete it">Delete</button></td>
+    </tr>
+    <input type="hidden" name="del_id" value="<%=customer[i]._id%>">
+  </form>
+<%}%>
+
+</table>
+  </div>
+
+  <div class="text-center">
+    <button style="position:relative;left:3%;top:5rem" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add New Customer
+    </button>
+
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header Enter-detail-header">
+          <h5 class="modal-title" id="exampleModalLabel">Enter Customer Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="post" action="/add">
+        <div class="modal-body">
+
+            <label >Customer Name</label>
+            <input type="text" name="customer" placeholder="Full Name">
+            <br>
+            <br>
+            <label>Phone-No</label>
+            <input type="number" name="phone" placeholder="xxxxxxxxxx">
+            <br>
+            <br>
+            <label>Date of Birth</label>
+            <input type="date" name="dob">
+            <br>
+            <br>
+            <label>Age</label>
+            <input type="text" name="age" placeholder="age">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>

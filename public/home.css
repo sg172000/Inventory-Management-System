@@ -1,0 +1,147 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body
+{
+  min-height: 100vh;
+  background: white;
+}
+ h1 {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+.navigation
+{
+  position: fixed;
+  width:60px;
+  height: 100%;
+  background: #07689F;
+  transition: 1s;
+  overflow: hidden;
+}
+.navigation:hover,.navigation.active
+{
+  width: 250px;
+}
+
+.navigation ul li
+{
+  width: 100%;
+  list-style: none;
+}
+.navigation ul li:hover
+{
+  background: #ea1d63;
+}
+.navigation ul li a
+{
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+.navigation ul li a .icon
+{
+  min-width: 60px;
+  height: 60px;
+  line-height:60px;
+  text-align: center;
+}
+.navigation ul li a .icon .fa
+{
+  font-size: 24px;
+}
+.navigation ul li a .title
+{
+  display: block;
+  padding: 0 10px;
+  height:60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+.toggle
+{
+  position:fixed;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: #07689F;
+  cursor: pointer;
+}
+.toggle.active
+{
+  background: #07689F;
+}
+.toggle:before
+{
+  content: '\f0c9';
+  font-family: fontawesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+}
+.toggle.active:before
+{
+  content: ' \f00d ';
+}
+.Dashboard
+{
+  position: relative;
+  left:15rem;
+  top: 2.5rem;
+  width:63rem;
+  height: 32rem;
+
+}
+.view
+{
+background:#E8F0F2;
+border-radius: 10%;
+margin-top: 15px;
+margin-left: 50px;
+display:inline-flex;
+width: 250px;
+height: 150px;
+text-align:center;
+padding: 10px;
+/*animation-duration: 3s;
+animation-name: slidein;*/
+}
+.view:hover
+{
+  background: #CDF0EA;
+  border:1px solid #07689F
+}
+.view h2
+{
+  padding-left: 10px;
+  margin-left: 20px;
+  height:30px;
+  width: 40px;
+}
+.view h1
+{
+  margin-top: 60px;
+}
+.header
+
+{
+  height: 60px;
+  width:54rem;
+  background-color: #07689F;
+  text-align: center;
+  margin-left:18rem;
+  border-radius: 5px;
+  color: white;
+
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+
+      <script src="https://kit.fontawesome.com/14175b670a.js" crossorigin="anonymous"></script>
+    <title>Home</title>
+  </head>
+  <body>
+  <div class="navigation">
+    <ul>
+      <li>
+        <a href="/">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span class="title">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/customer">
+          <span class="icon"><i class="fa fa-users" ></i></span>
+          <span class="title">Customer</span>
+        </a>
+      </li>
+      <li>
+        <a href="/product">
+          <span class="icon"><i class="fa fa-list" ></i></span>
+          <span class="title">Add Product</span>
+        </a>
+      </li>
+      <li>
+        <a href="/supplier">
+          <span class="icon"><i class="fa fa-users fa-2x"></i></span>
+          <span class="title">Supplier</span>
+        </a>
+      </li>
+      <li>
+        <a href="/brand">
+          <span class="icon"><i class="fa fa-font-awesome fa-2x" ></i></span>
+          <span class="title">Brand</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="toggle" onclick="toggleMenu()">
+<script type="text/javascript">
+  function toggleMenu() {
+let navigation=document.querySelector('.navigation');
+let toggle=document.querySelector('.toggle');
+navigation.classList.toggle('active');
+toggle.classList.toggle('active');
+  }
+</script>
+  </div>
+
+  <div class="header"><h1>Dashboard</h1></div>
+  <div class="Dashboard">
+    <a style="text-decoration:none;color:black"href="/customer">
+      <div class="view container">
+     <i class="fa fa-user fa-2x" ></i>
+     <h2>Customers</h2>
+     <h1><%=customer%></h1>
+      </div>
+    </a>
+
+  <a style="text-decoration:none;color:black"href="/product">
+    <div class="view container">
+    <i class="fa fa-list fa-2x" ></i>
+    <h2>Category</h2>
+    <h1><%=product%></h1>
+    </div>
+  </a>
+
+  <a style="text-decoration:none;color:black"href="/brand">
+    <div class="view container">
+    <i class="fa fa-font-awesome fa-2x" ></i>
+    <h2>Brand</h2>
+    <h1><%=product%></h1>
+    </div>
+  </a>
+
+  <a style="text-decoration:none;color:black"href="/product">
+    <div class="view container">
+    <i class="fa fa-product-hunt fa-2x" ></i>
+    <h2>Product</h2>
+    <h1><%=product%></h1>
+    </div>
+  </a>
+
+   <a style="text-decoration:none;color:black"href="/supplier">
+    <div class="view container">
+      <i class="fa fa-address-book-o fa-2x" ></i>
+    <h2>Supplier</h2>
+    <h1><%=product%></h1>
+    </div>
+  </a>
+
+    <a style="text-decoration:none;color:black"href="/product">
+    <div class="view container">
+      <i class="fa fa-address-card-o fa-2x" ></i>
+    <h2>Purchase</h2>
+    <h1><%=product%></h1>
+    </div>
+  </a>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

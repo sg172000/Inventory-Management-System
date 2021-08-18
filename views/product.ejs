@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Product</title>
+
+  <link rel="stylesheet" href="product.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/14175b670a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="navigation">
+    <ul>
+      <li>
+        <a href="/">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span class="title">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/customer">
+          <span class="icon"><i class="fa fa-users"></i></span>
+          <span class="title">Customer</span>
+        </a>
+      </li>
+      <li>
+        <a href="/product">
+          <span class="icon"><i class="fa fa-list"></i></span>
+          <span class="title">Add Product</span>
+        </a>
+      </li>
+      <li>
+        <a href="/supplier">
+          <span class="icon"><i class="fa fa-users fa-2x"></i></span>
+          <span class="title">Supplier</span>
+        </a>
+      </li>
+      <li>
+        <a href="/brand">
+          <span class="icon"><i class="fa fa-font-awesome fa-2x"></i></span>
+          <span class="title">Brand</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="toggle" onclick="toggleMenu()">
+    <script type="text/javascript">
+      function toggleMenu() {
+        let navigation = document.querySelector('.navigation');
+        let toggle = document.querySelector('.toggle');
+        navigation.classList.toggle('active');
+        toggle.classList.toggle('active');
+      }
+    </script>
+  </div>
+
+  <br>
+
+  <div class="text-center container" style="color:white;margin-left:19rem;height:5rem;padding:5px; background:#07689F;width:64%;border-radius:10px">
+    <h1>Manage all Your Product Here</h1>
+  </div>
+  <br>
+  <br>
+  <div class="contain table-responsive-sm">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Brand</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Purchase date</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%for(var i=0;i<product.length;i++){ %>
+        <tr>
+          <td><%= product[i].category %> </td>
+          <td><%= product[i].brand %> </td>
+          <td><%= product[i].product %> </td>
+          <td><%= product[i].quantity %> </td>
+          <td><%= product[i].price %> </td>
+          <td><%= product[i].purchase %> </td>
+          <td><button class="btn btn-primary btn-sm" onclick="openUpdateForm('<%=product[i]._id%>','<%=product[i].category%>','<%=product[i].brand %>','<%= product[i].product %>','<%= product[i].quantity %>','<%= product[i].price %>','<%= product[i].purchase %>')">Edit</button>
+          </td>
+          <form action="/deleteproduct" method="post">
+          <td><button class="btn btn-danger btn-sm" type="submit">Delete</button></td>
+            <input type="hidden" name="deleteproductid" value="<%=product[i]._id%>">
+          </form>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+
+    <button style="margin:5rem 40%" class="btn btn-primary" type="submit" name="button" onclick="openForm()">Add Product</button>
+  </div>
+
+  <!--update form popup -->
+
+
+    <div class="update_popup" id="updateform">
+      <form action="/edit" method="post">
+      <i onclick="closeUpdateForm()" style="float:right;color:red;" class="fa fa-window-close fa-2x"></i>
+      <table class="table table-responsive-lg">
+        <h1>Update Details</h1>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Purchase Date</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td><input id="category" type="text" name="update_category" value=""></td>
+            <td><input id="brand" type="text" name="update_brand" value=""></td>
+            <td><input id="product" type="text" name="update_product" value=""></td>
+            <td><input id="quantity" type="text" name="update_quantity" value=""></td>
+            <td><input id="price" type="text" name="update_price" value=""></td>
+            <td><input id="purchase" type="text" name="update_purchase" value=""></td>
+          </tr>
+          <input id="secret" type="hidden" name="id" value="">
+        </tbody>
+      </table>
+      <button  class="btn btn-primary" type="submit" name="button">Update</button>
+    </form>
+    </div>
+  <script type="text/javascript">
+    function openUpdateForm(id,category,brand,product,quantity,price,purchase) {
+      document.getElementById("secret").value=id;
+      document.getElementById("category").value=category;
+      document.getElementById("brand").value=brand;
+      document.getElementById("product").value=product;
+      document.getElementById("quantity").value=quantity;
+      document.getElementById("price").value=price;
+      document.getElementById("purchase").value=purchase;
+      document.getElementById("updateform").style.display = "block";
+    }
+
+    function closeUpdateForm() {
+      document.getElementById("updateform").style.display = "none";
+    }
+  </script>
+  <!--update form popup end -->
+
+  <div class="form-popup" id="myForm">
+    <form action="/product" method="post" class="form-container">
+      <h2 style="display:inline">Enter Details</h2>
+      <i onclick="closeForm()" style="float:right;color:red" class="fa fa-window-close fa-2x" aria-hidden="true"></i>
+      <br>
+      <br>
+      <label style="display:block" for="category"><b>Category</b></label>
+      <input type="text" placeholder="Enter category" name="category" required>
+
+      <label for="brand"><b>Brand</b></label>
+      <input type="text" placeholder="brand (if any)" name="brand" required>
+
+      <label for="product"><b>Product</b></label>
+      <input type="text" placeholder="add description" name="product" required>
+
+      <label for="quantity"><b>Quantity</b></label>
+      <input type="text" placeholder="quantity" name="quantity" required>
+
+      <label for="price"><b>Price</b></label>
+      <input type="text" placeholder="10$" name="price" required>
+      <label for="purchasedate"><b>Purchase Date</b></label>
+      <input type="text" placeholder="dd/mm/yyyy" name="purchasedate" required>
+
+      <button style="width:100%" type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+  <script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

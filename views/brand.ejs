@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Brand</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/14175b670a.js" crossorigin="anonymous"></script>
+
+ <style media="screen">
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+ }
+
+ body {
+   min-height: 100vh;
+   background: white;
+ }
+ .navigation {
+   position: fixed;
+   width: 250px;
+   height: 100%;
+   background: #07689F;
+   transition: 1s;
+   overflow: hidden;
+ }
+
+ .navigation.active {
+   width: 100px;
+ }
+
+ .navigation ul li {
+   width: 100%;
+   list-style: none;
+ }
+
+ .navigation ul li:hover {
+   background: #ea1d63;
+ }
+
+ .navigation ul li a {
+   width: 100%;
+   display: flex;
+   text-decoration: none;
+   color: #fff;
+ }
+
+ .navigation ul li a .icon {
+   min-width: 60px;
+   height: 60px;
+   line-height: 60px;
+   text-align: center;
+ }
+
+ .navigation ul li a .icon .fa {
+   font-size: 24px;
+ }
+
+ .navigation ul li a .title {
+   display: block;
+   padding: 0 10px;
+   height: 60px;
+   line-height: 60px;
+   text-align: start;
+   white-space: nowrap;
+ }
+
+ .toggle {
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 60px;
+   height: 60px;
+   background: #07689F;
+   cursor: pointer;
+ }
+
+ .toggle.active {
+   background: #07689F;
+ }
+
+ .toggle:before {
+   content: '\f00d';
+   font-family: fontawesome;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   line-height: 60px;
+   text-align: center;
+   font-size: 24px;
+   color: #fff;
+ }
+
+ .toggle.active:before {
+   content: ' \f0c9 ';
+ }
+
+ </style>
+</head>
+
+<body>
+  <div class="navigation">
+    <ul>
+      <li>
+        <a href="/">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span class="title">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/customer">
+          <span class="icon"><i class="fa fa-users"></i></span>
+          <span class="title">Customer</span>
+        </a>
+      </li>
+      <li>
+        <a href="/product">
+          <span class="icon"><i class="fa fa-product-hunt fa-2x"></i></span>
+          <span class="title">Add Product</span>
+        </a>
+      </li>
+      <li>
+        <a href="/supplier">
+          <span class="icon"><i class="fa fa-users fa-2x"></i></span>
+          <span class="title">Supplier</span>
+        </a>
+      </li>
+      <li>
+        <a href="/brand">
+            <span class="icon"><i class="fa fa-font-awesome fa-2x"></i></span>
+          <span class="title">Brand</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="toggle" onclick="toggleMenu()">
+    <script type="text/javascript">
+      function toggleMenu() {
+        let navigation = document.querySelector('.navigation');
+        let toggle = document.querySelector('.toggle');
+        navigation.classList.toggle('active');
+        toggle.classList.toggle('active');
+      }
+    </script>
+  </div>
+
+  <br>
+<div class="">
+  <h1 style="color:white;margin-left:20rem;;font-size:3rem;background:#07689F;width:50%;border-radius:5px;padding:5px;">Brand You Added So far</h1>
+
+  <table style="margin-left:20rem;width:50%;font-size:1.5rem" class="table">
+    <th>Your Brand List</th>
+  <%  for(var i=0;i<brand.length;i++){ %>
+    <tr>
+      <td><%=brand[i].brand%></td>
+   </tr>
+  <%}%>
+  </table>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

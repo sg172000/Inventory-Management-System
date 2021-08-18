@@ -1,0 +1,144 @@
+.navigation {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background: #07689F;
+  transition: 1s;
+  overflow: hidden;
+}
+
+.navigation.active {
+  width: 100px;
+}
+
+.navigation ul li {
+  width: 100%;
+  list-style: none;
+}
+
+.navigation ul li:hover {
+  background: #ea1d63;
+}
+
+.navigation ul li a {
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navigation ul li a .icon {
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.navigation ul li a .icon .fa {
+  font-size: 24px;
+}
+
+.navigation ul li a .title {
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: #07689F;
+  cursor: pointer;
+}
+
+.toggle.active {
+  background: #07689F;
+}
+
+.toggle:before {
+  content: '\f00d';
+  font-family: fontawesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+}
+
+.toggle.active:before {
+  content: ' \f0c9 ';
+}
+
+.contain {
+  margin-left: 19rem;
+  width:65%;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 0rem;
+  left: 32rem;
+  border: 3px solid #f1f1f1;
+}
+
+.form-container {
+  max-width: 400px;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-container input[type=text], .form-container input[type=text] {
+  width: 100%;
+  padding: 6px;
+  margin: 5px 0 15px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* update form css */
+.update_popup {
+  width: 70%;
+  margin-left: 20%;
+  background: white;
+  height: 15rem;
+  box-shadow: 1px 2px 8px;
+  text-align: center;
+  display: none;
+  position: fixed;
+  top: 2rem;
+}
+
+.update_popup h1 {
+  text-align: center;
+  background:#EEEEEE;
+
+}
+
+.update_popup input {
+  width: 100%;
+  padding: 6px;
+  border:1px solid grey;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+.update_popup input[type=text]:focus, .update_popup input[type=text]:focus {
+  background-color: white;
+  outline-color:blue;
+  outline-style: outset;
+  border-radius: 5px;
+}

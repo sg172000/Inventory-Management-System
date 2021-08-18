@@ -1,0 +1,168 @@
+body{
+  background: #F7FBFC;
+  margin: 0;
+}
+label {
+  border:1px solid grey;
+  border-style: groove;
+  text-align: center;
+  margin-left:4rem ;
+  background:#07689F;
+  color: white;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 10px;
+}
+
+input
+{
+  border-radius: 5px;
+  border:1px solid grey;
+  height: 2.3rem;
+  width:10rem;
+
+}
+
+.heading
+{
+  margin: 0;
+  padding: 20px;
+  font-size: 18px;
+  font-weight:400;
+  color: #00204a;
+}
+
+.btn-primary
+{
+    background-color: #lightblue !important;
+    border-style: groove;
+
+}
+.btn-primary:hover
+{
+  background-color: #ddd !important;
+  color: black !important;
+}
+.btn-primary:active
+{
+  background-color: #04AA6D !important;
+  color: white !important;
+}
+.item
+{
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #F1F1F1;
+}
+.division
+{
+  margin-left: 19rem;
+  width:65%;
+  background: white;
+  border-radius: 5px;
+  box-shadow: -5px 5px 15px -10px rgba(0, 0, 0, 0.3);
+
+}
+.details
+{
+  background:lightgrey;
+  border-radius: 5px;
+  padding: 7px;
+
+}
+.Enter-detail-header
+{
+  background: #07689F;
+  color: white;
+}
+.icon-edit
+{
+  color: blue;
+}
+.icon-del
+{
+  color: red;
+}
+
+
+.navigation
+{
+  position: fixed;
+  width:250px;
+  height: 100%;
+  background: #07689F;
+  transition: 1s;
+  overflow: hidden;
+}
+.navigation.active
+{
+  width: 100px;
+}
+
+.navigation ul li
+{
+  width: 100%;
+  list-style: none;
+}
+.navigation ul li:hover
+{
+  background: #ea1d63;
+}
+.navigation ul li a
+{
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+.navigation ul li a .icon
+{
+  min-width: 60px;
+  height: 60px;
+  line-height:60px;
+  text-align: center;
+}
+.navigation ul li a .icon .fa
+{
+  font-size: 24px;
+}
+.navigation ul li a .title
+{
+  display: block;
+  padding: 0 10px;
+  height:60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+.toggle
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: #07689F;
+  cursor: pointer;
+}
+.toggle.active
+{
+  background: #07689F;
+}
+.toggle:before
+{
+  content: '\f00d';
+  font-family: fontawesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+}
+.toggle.active:before
+{
+  content: ' \f0c9 ';
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Supplier</title>
+
+  <link rel="stylesheet" href="product.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/14175b670a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="navigation">
+    <ul>
+      <li>
+        <a href="/">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span class="title">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/customer">
+          <span class="icon"><i class="fa fa-users"></i></span>
+          <span class="title">Customer</span>
+        </a>
+      </li>
+      <li>
+        <a href="/product">
+          <span class="icon"><i class="fa fa-list"></i></span>
+          <span class="title">Add Product</span>
+        </a>
+      </li>
+      <li>
+        <a href="/supplier">
+          <span class="icon"><i class="fa fa-users fa-2x"></i></span>
+          <span class="title">Supplier</span>
+        </a>
+      </li>
+      <li>
+        <a href="/brand">
+          <span class="icon"><i class="fa fa-font-awesome fa-2x"></i></span>
+          <span class="title">Brand</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="toggle" onclick="toggleMenu()">
+    <script type="text/javascript">
+      function toggleMenu() {
+        let navigation = document.querySelector('.navigation');
+        let toggle = document.querySelector('.toggle');
+        navigation.classList.toggle('active');
+        toggle.classList.toggle('active');
+      }
+    </script>
+  </div>
+
+  <br>
+
+  <div class="text-center container" style="color:white;margin-left:19rem;height:5rem;padding:5px; background:#07689F;width:64%;border-radius:10px">
+    <h1>Add Supplier</h1>
+  </div>
+  <br>
+  <br>
+  <div class="contain table-responsive-sm">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Supplier Name</th>
+          <th>State</th>
+          <th>Address</th>
+          <th>Customer Contact 1</th>
+          <th>Customer Contact 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%for(var i=0;i<supplier.length;i++){%>
+        <tr>
+          <td><%= supplier[i].SupplierName %></td>
+          <td><%= supplier[i].state %></td>
+          <td><%= supplier[i].address %></td>
+          <td><%= supplier[i].Contact1 %></td>
+          <td><%= supplier[i].Contact2 %></td>
+          <form action="/deletesupplier" method="post">
+          <td><button type=submit class="btn btn-danger btn-sm">Delete</button></td>
+            <input type="hidden" name="deletesupplierid" value="<%=supplier[i]._id%>">
+          </form>
+        </tr>
+      <%}%>
+      </tbody>
+    </table>
+
+    <button style="margin:5rem 40%" class="btn btn-primary" type="submit" name="button" onclick="openForm()">Add Supplier</button>
+  </div>
+
+  <div class="form-popup" id="myForm">
+    <form action="/supplier" method="post" class="form-container">
+      <h2 style="display:inline">Enter Details</h2>
+      <i onclick="closeForm()" style="float:right;color:red" class="fa fa-window-close fa-2x" aria-hidden="true"></i>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label style="display:block" for="category"><b>SupplierName</b></label>
+          <input type="text" placeholder="Enter Name" name="SupplierName" required>
+        </div>
+
+        <div class="col">
+          <label for="brand"><b>State</b></label>
+          <input type="text" placeholder="state" name="state" required>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col">
+          <label style="display:block" for="category"><b>Address</b></label>
+          <input style="height:4rem;" type="text" placeholder="Enter Full Address" name="Address" size="4" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label style="display:block" for="category"><b>Customer Contact1</b></label>
+          <input type="text" placeholder="xxxxxxxxxx" name="CustomerContact1" required>
+        </div>
+        <div class="col">
+          <label for="brand"><b>Customer Contact2</b></label>
+          <input type="text" placeholder="xxxxxxxxxx" name="CustomerContact2" >
+        </div>
+      </div>
+
+      <button style="width:100%" type="submit" class="btn btn-primary">Add Supplier</button>
+    </form>
+  </div>
+  <script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
